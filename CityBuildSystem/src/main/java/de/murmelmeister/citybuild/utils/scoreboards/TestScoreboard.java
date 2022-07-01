@@ -18,7 +18,7 @@ public class TestScoreboard extends ScoreboardBuilder {
     private final MoneyAPI moneyAPI = CityBuild.getInstance().getInitPlugin().getMoneyAPI();
     private final PlayTimeAPI playTimeAPI = CityBuild.getInstance().getInitPlugin().getPlayTimeAPI();
 
-    private final DecimalFormat decimalFormat = new DecimalFormat("###.###.###,##");
+    private final DecimalFormat decimalFormat = new DecimalFormat("###,###,###.##");
 
     public TestScoreboard(Player player) {
         super(player, Component.text("GrieferGame", TextColor.color(241, 183, 25)));
