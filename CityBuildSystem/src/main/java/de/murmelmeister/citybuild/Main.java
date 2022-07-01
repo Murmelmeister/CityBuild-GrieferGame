@@ -29,7 +29,7 @@ public abstract class Main extends JavaPlugin {
     }
 
     public String getPluginName() {
-        return "Lobby";
+        return "CityBuild";
     }
 
     public String getPrefix() {
