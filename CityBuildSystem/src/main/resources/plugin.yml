@@ -1,0 +1,7 @@
+name: CityBuild
+version: '${project.version}'
+main: de.murmelmeister.citybuild.CityBuild
+api-version: 1.19
+authors: [ Murmelmeister ]
+description: The main system for the citybuild.
+website: https://www.youtube.com/Murmelmeister
