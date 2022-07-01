@@ -15,10 +15,8 @@ import java.util.UUID;
 
 public class TestScoreboard extends ScoreboardBuilder {
 
-    private final CityBuild instance = CityBuild.getInstance();
-
-    private final MoneyAPI moneyAPI = this.instance.getInitPlugin().getMoneyAPI();
-    private final PlayTimeAPI playTimeAPI = this.instance.getInitPlugin().getPlayTimeAPI();
+    private final MoneyAPI moneyAPI = CityBuild.getInstance().getInitPlugin().getMoneyAPI();
+    private final PlayTimeAPI playTimeAPI = CityBuild.getInstance().getInitPlugin().getPlayTimeAPI();
 
     private final DecimalFormat decimalFormat = new DecimalFormat("###.###.###,##");
 
@@ -32,7 +30,7 @@ public class TestScoreboard extends ScoreboardBuilder {
 
         setScoreTeam(Component.text(""), 13);
         setScoreTeam(Component.text("§6⚔§8〡§7Spieler"), 12);
-        setScoreTeam(Component.text("§e" + this.instance.getServer().getOnlinePlayers().size() + "§7/§e" + this.instance.getServer().getMaxPlayers()), 11);
+        setScoreTeam(Component.text("§e" + CityBuild.getInstance().getServer().getOnlinePlayers().size() + "§7/§e" + CityBuild.getInstance().getServer().getMaxPlayers()), 11);
         setScoreTeam(Component.text(""), 10);
         setScoreTeam(Component.text("§2⛃§8〡§7Kontostand"), 9);
         // Score 8 (Money)
@@ -57,7 +55,7 @@ public class TestScoreboard extends ScoreboardBuilder {
                 removeScoreTeam(5);
                 setScoreTeam(Component.text("§e" + (playTimeAPI.getHours(player.getUniqueId()) == 1 ? "1 Stunde" : playTimeAPI.getHours(player.getUniqueId()) + " Stunden")), 5);
             }
-        }.runTaskTimer(this.instance, 20, 2 * 20);
+        }.runTaskTimer(CityBuild.getInstance(), 20, 2 * 20);
     }
 
     private String handleMoney(MoneyAPI moneyAPI, Player player) {

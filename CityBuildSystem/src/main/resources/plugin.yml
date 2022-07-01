@@ -5,3 +5,14 @@ api-version: 1.19
 authors: [ Murmelmeister ]
 description: The main system for the citybuild.
 website: https://www.youtube.com/Murmelmeister
+
+commands:
+  citybuild:
+    usage: /<command> [reload]
+    description: Admin command edit the plugin.
+  setspawn:
+    usage: /<command>
+    description: Set the spawn.
+  spawn:
+    usage: /<command>
+    description: Teleport you to the spawn.
