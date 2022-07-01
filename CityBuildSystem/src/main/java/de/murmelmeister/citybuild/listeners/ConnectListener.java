@@ -1,5 +1,6 @@
 package de.murmelmeister.citybuild.listeners;
 
+import de.murmelmeister.citybuild.utils.scoreboards.TestScoreboard;
 import de.murmelmeister.playtime.PlayTimeAPI;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
@@ -22,6 +23,8 @@ public class ConnectListener extends Listeners {
 
         player.getInventory().clear();
         updateActionBar(this.playTimeAPI);
+
+        new TestScoreboard(player);
 
         try {
             player.teleport(this.locations.getSpawn()); // Teleport to the spawn
@@ -51,26 +54,26 @@ public class ConnectListener extends Listeners {
         if ((playTime.getYears(player.getUniqueId()) == 0)
                 && (playTime.getDays(player.getUniqueId()) == 0)
                 && (playTime.getHours(player.getUniqueId()) == 0)) {
-            player.sendActionBar(Component.text("PlayTime: ", TextColor.color(0xcccccc))
-                    .append(Component.text((playTime.getMinutes(player.getUniqueId()) == 1 ? "1 minute" : playTime.getMinutes(player.getUniqueId()) + " minutes"), TextColor.color(0xE7D606))));
+            player.sendActionBar(Component.text("Spielzeit: ", TextColor.color(0xcccccc))
+                    .append(Component.text((playTime.getMinutes(player.getUniqueId()) == 1 ? "1 Minute" : playTime.getMinutes(player.getUniqueId()) + " Minuten"), TextColor.color(0xE7D606))));
 
         } else if ((playTime.getYears(player.getUniqueId()) == 0)
                 && (playTime.getDays(player.getUniqueId()) == 0)) {
-            player.sendActionBar(Component.text("PlayTime: ", TextColor.color(0xcccccc))
-                    .append(Component.text((playTime.getHours(player.getUniqueId()) == 1 ? "1 hour" : playTime.getHours(player.getUniqueId()) + " hours")
-                            + " " + (playTime.getMinutes(player.getUniqueId()) == 1 ? "1 minute" : playTime.getMinutes(player.getUniqueId()) + " minutes"), TextColor.color(0xE7D606))));
+            player.sendActionBar(Component.text("Spielzeit: ", TextColor.color(0xcccccc))
+                    .append(Component.text((playTime.getHours(player.getUniqueId()) == 1 ? "1 Stunde" : playTime.getHours(player.getUniqueId()) + " Stunden")
+                            + " " + (playTime.getMinutes(player.getUniqueId()) == 1 ? "1 Minute" : playTime.getMinutes(player.getUniqueId()) + " Minuten"), TextColor.color(0xE7D606))));
 
         } else if (playTime.getYears(player.getUniqueId()) == 0) {
-            player.sendActionBar(Component.text("PlayTime: ", TextColor.color(0xcccccc))
-                    .append(Component.text((playTime.getDays(player.getUniqueId()) == 1 ? "1 day" : playTime.getDays(player.getUniqueId()) + " days")
-                            + " " + (playTime.getHours(player.getUniqueId()) == 1 ? "1 hour" : playTime.getHours(player.getUniqueId()) + " hours")
-                            + " " + (playTime.getMinutes(player.getUniqueId()) == 1 ? "1 minute" : playTime.getMinutes(player.getUniqueId()) + " minutes"), TextColor.color(0xE7D606))));
+            player.sendActionBar(Component.text("Spielzeit: ", TextColor.color(0xcccccc))
+                    .append(Component.text((playTime.getDays(player.getUniqueId()) == 1 ? "1 Tag" : playTime.getDays(player.getUniqueId()) + " Tage")
+                            + " " + (playTime.getHours(player.getUniqueId()) == 1 ? "1 Stunde" : playTime.getHours(player.getUniqueId()) + " Stunden")
+                            + " " + (playTime.getMinutes(player.getUniqueId()) == 1 ? "1 Minute" : playTime.getMinutes(player.getUniqueId()) + " Minuten"), TextColor.color(0xE7D606))));
         } else {
-            player.sendActionBar(Component.text("PlayTime: ", TextColor.color(0xcccccc))
-                    .append(Component.text((playTime.getYears(player.getUniqueId()) == 1 ? "1 year" : playTime.getYears(player.getUniqueId()) + " years")
-                            + " " + (playTime.getDays(player.getUniqueId()) == 1 ? "1 day" : playTime.getDays(player.getUniqueId()) + " days")
-                            + " " + (playTime.getHours(player.getUniqueId()) == 1 ? "1 hour" : playTime.getHours(player.getUniqueId()) + " hours")
-                            + " " + (playTime.getMinutes(player.getUniqueId()) == 1 ? "1 minute" : playTime.getMinutes(player.getUniqueId()) + " minutes"), TextColor.color(0xE7D606))));
+            player.sendActionBar(Component.text("Spielzeit: ", TextColor.color(0xcccccc))
+                    .append(Component.text((playTime.getYears(player.getUniqueId()) == 1 ? "1 Jahr" : playTime.getYears(player.getUniqueId()) + " Jahre")
+                            + " " + (playTime.getDays(player.getUniqueId()) == 1 ? "1 Tag" : playTime.getDays(player.getUniqueId()) + " Tage")
+                            + " " + (playTime.getHours(player.getUniqueId()) == 1 ? "1 Stunde" : playTime.getHours(player.getUniqueId()) + " Stunden")
+                            + " " + (playTime.getMinutes(player.getUniqueId()) == 1 ? "1 Minute" : playTime.getMinutes(player.getUniqueId()) + " Minuten"), TextColor.color(0xE7D606))));
         }
     }
 
