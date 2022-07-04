@@ -20,6 +20,7 @@ public class MoneyCommand extends CommandManager {
         }
 
         // TODO: finish the Command
+        sendMessage(sender, "§cComing Soon");
 
         return true;
     }

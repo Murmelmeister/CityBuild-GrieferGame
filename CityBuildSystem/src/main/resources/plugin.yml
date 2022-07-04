@@ -18,14 +18,17 @@ commands:
     description: Teleport you to the spawn.
   sethome:
     usage: /<command> <homes>
-    description: Set you home!
+    description: Erstelle dein Home.
   home:
     usage: /<command> <homes>
-    description: Teleport to you home!
+    description: Teleport dich zu deinem Home.
   deletehome:
     usage: /<command> <homes>
-    description: Delete you home!
+    description: Lösche dein Home.
     aliases: [ delhome ]
   pay:
     usage: /<command> <players> <coin>
-    description: Pay to others player!
+    description: Bezahle andere Spieler.
+  money:
+    usage: /<command> [players]
+    description: Zeige dein Kontostand an.
