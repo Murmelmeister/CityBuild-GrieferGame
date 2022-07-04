@@ -26,3 +26,6 @@ commands:
     usage: /<command> <homes>
     description: Delete you home!
     aliases: [ delhome ]
+  pay:
+    usage: /<command> <players> <coin>
+    description: Pay to others player!
