@@ -55,7 +55,7 @@ public class TestScoreboard extends ScoreboardBuilder {
                 removeScoreTeam(5);
                 setScoreTeam(Component.text("§e" + (playTimeAPI.getHours(player.getUniqueId()) == 1 ? "1 Stunde" : playTimeAPI.getHours(player.getUniqueId()) + " Stunden")), 5);
             }
-        }.runTaskTimer(CityBuild.getInstance(), 20, 3 * 20);
+        }.runTaskTimer(CityBuild.getInstance(), 20L, 4 * 20L);
     }
 
     private String handleMoney(MoneyAPI moneyAPI, Player player) {

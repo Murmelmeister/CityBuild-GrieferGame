@@ -6,6 +6,7 @@ import de.murmelmeister.citybuild.commands.Commands;
 import de.murmelmeister.citybuild.configs.Messages;
 import de.murmelmeister.citybuild.configs.mysqls.EcoMySQL;
 import de.murmelmeister.citybuild.configs.mysqls.PTMySQL;
+import de.murmelmeister.citybuild.listeners.ConnectListener;
 import de.murmelmeister.citybuild.listeners.Listeners;
 import de.murmelmeister.economy.BankAPI;
 import de.murmelmeister.economy.MoneyAPI;
@@ -52,6 +53,8 @@ public class InitPlugin {
         setCommands(new Commands());
         getListeners().registerListeners();
         getCommands().registerCommands();
+
+        getListeners().getConnectListener().updateActionBar(getPlayTimeAPI());
     }
 
     public Messages getMessages() {

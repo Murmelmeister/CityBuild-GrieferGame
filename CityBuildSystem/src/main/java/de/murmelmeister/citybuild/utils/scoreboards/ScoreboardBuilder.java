@@ -18,7 +18,6 @@ public abstract class ScoreboardBuilder {
     protected final Player player;
 
     public ScoreboardBuilder(Player player, Component displayName) {
-
         this.player = player;
 
         if (player.getScoreboard().equals(Bukkit.getScoreboardManager().getMainScoreboard())) {
@@ -62,7 +61,6 @@ public abstract class ScoreboardBuilder {
 
         team.prefix(content);
         showScore(score);
-
     }
 
     public void removeScoreTeam(int score) {
@@ -70,21 +68,15 @@ public abstract class ScoreboardBuilder {
     }
 
     private EntryName getEntryNameByScore(int id) {
-
         for (EntryName name : EntryName.values()) {
-
             if (id == name.getEntry()) {
-
                 return name;
             }
-
         }
-
         return null;
     }
 
     private Team getTeamByScore(int id) {
-
         EntryName name = getEntryNameByScore(id);
 
         if (name == null) {
@@ -104,7 +96,6 @@ public abstract class ScoreboardBuilder {
     }
 
     private void showScore(int score) {
-
         EntryName name = getEntryNameByScore(score);
 
         if (name == null) {
@@ -116,11 +107,9 @@ public abstract class ScoreboardBuilder {
         }
 
         objective.getScore(name.getEntryName()).setScore(score);
-
     }
 
     private void hideScore(int score) {
-
         EntryName name = getEntryNameByScore(score);
 
         if (name == null) {
@@ -132,7 +121,6 @@ public abstract class ScoreboardBuilder {
         }
 
         scoreboard.resetScores(name.getEntryName());
-
     }
 
 }

@@ -26,7 +26,6 @@ public class ConnectListener extends Listeners {
         event.joinMessage(null);
 
         player.getInventory().clear();
-        updateActionBar(this.playTimeAPI);
 
         new TestScoreboard(player);
 
@@ -75,7 +74,7 @@ public class ConnectListener extends Listeners {
         }
     }
 
-    private void updateActionBar(PlayTimeAPI playTime) {
+    public void updateActionBar(PlayTimeAPI playTime) {
         new BukkitRunnable() {
 
             @Override
@@ -85,7 +84,7 @@ public class ConnectListener extends Listeners {
                 }
 
             }
-        }.runTaskTimer(this.instance, 20, 4 * 20);
+        }.runTaskTimer(this.instance, 20L, 2 * 20L);
     }
 
     private void createMoneyAccount(UUID uuid, String name) {

@@ -20,8 +20,11 @@ public class Listeners implements Listener {
     protected MoneyAPI moneyAPI = this.instance.getInitPlugin().getMoneyAPI();
     protected BankAPI bankAPI = this.instance.getInitPlugin().getBankAPI();
 
+    private ConnectListener connectListener;
+
     public void registerListeners() {
-        addListener(new ConnectListener());
+        setConnectListener(new ConnectListener());
+        addListener(getConnectListener());
     }
 
     private void addListener(Listener listener) {
@@ -32,4 +35,11 @@ public class Listeners implements Listener {
         sender.sendMessage(this.messages.getPrefix() + HexColor.format(message));
     }
 
+    public ConnectListener getConnectListener() {
+        return connectListener;
+    }
+
+    public void setConnectListener(ConnectListener connectListener) {
+        this.connectListener = connectListener;
+    }
 }
