@@ -11,6 +11,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.UUID;
+
 public class ConnectListener extends Listeners {
 
     /*
@@ -19,6 +21,8 @@ public class ConnectListener extends Listeners {
     @EventHandler(priority = EventPriority.NORMAL)
     public void handlePlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer(); // Player
+        createMoneyAccount(player.getUniqueId(), player.getName());
+        createBankAccount(player.getUniqueId(), player.getName());
         event.joinMessage(null);
 
         player.getInventory().clear();
@@ -82,6 +86,16 @@ public class ConnectListener extends Listeners {
 
             }
         }.runTaskTimer(this.instance, 20, 4 * 20);
+    }
+
+    private void createMoneyAccount(UUID uuid, String name) {
+        if (!(this.moneyAPI.hasAccount(uuid)))
+            this.moneyAPI.createNewAccount(uuid, name);
+    }
+
+    private void createBankAccount(UUID uuid, String name) {
+        if (!(this.bankAPI.hasAccount(uuid)))
+            this.bankAPI.createNewAccount(uuid, name);
     }
 
 }
