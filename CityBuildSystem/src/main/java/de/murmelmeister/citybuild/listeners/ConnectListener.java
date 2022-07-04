@@ -33,12 +33,6 @@ public class ConnectListener extends Listeners {
             sendMessage(player, "§8--- §cSetup §8---");
             sendMessage(player, "§7Bitte setze den Spawn. §8(§c/setspawn§8)");
         }
-
-        // When the death height does not exist
-        if (this.locations.getConfig().get("Locations.DeathHeight") == null) {
-            sendMessage(player, "§8--- §cSetup §8---");
-            sendMessage(player, "§7Bitte setze die Todeshöhe. §8(§c/setdeathheight§8)");
-        }
     }
 
     /*
@@ -87,7 +81,7 @@ public class ConnectListener extends Listeners {
                 }
 
             }
-        }.runTaskTimer(this.instance, 20, 20);
+        }.runTaskTimer(this.instance, 20, 4 * 20);
     }
 
 }

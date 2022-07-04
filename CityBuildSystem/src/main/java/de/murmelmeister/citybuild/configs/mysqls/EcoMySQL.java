@@ -1,4 +1,4 @@
-package de.murmelmeister.citybuild.configs;
+package de.murmelmeister.citybuild.configs.mysqls;
 
 import de.murmelmeister.citybuild.CityBuild;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -9,30 +9,30 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class MySQL {
+public class EcoMySQL {
 
     private File folder;
     private File file;
     private YamlConfiguration config;
 
-    public MySQL() {
+    public EcoMySQL() {
         createFile();
         saveFile();
     }
 
     public void createFile() {
-        setFolder(new File("plugins//GrieferGame//" + CityBuild.getInstance().getPluginName() + "//"));
+        setFolder(new File("plugins//GrieferGame//" + CityBuild.getInstance().getPluginName() + "//MySQL//"));
         if (!(getFolder().exists())) {
             boolean aBoolean = getFolder().mkdirs();
             if (!(aBoolean)) CityBuild.getInstance().getSLF4JLogger().warn("The folder cannot be created a second time.");
         }
 
-        setFile(new File(getFolder(), "mysql.yml"));
+        setFile(new File(getFolder(), "economy.yml"));
         if (!(getFile().exists())) {
             try {
                 boolean aBoolean = getFile().createNewFile();
                 if (!(aBoolean))
-                    CityBuild.getInstance().getSLF4JLogger().warn("The file 'mysql.yml' cannot be created a second time.");
+                    CityBuild.getInstance().getSLF4JLogger().warn("The file 'economy.yml' cannot be created a second time.");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -53,24 +53,14 @@ public class MySQL {
     }
 
     private void firstConfig() {
-        this.getConfig().set("PlayTime.Hostname", "localhost");
-        this.getConfig().set("PlayTime.Port", 3306);
-        this.getConfig().set("PlayTime.Database", "PlayTimeBase");
-        this.getConfig().set("PlayTime.Username", "root");
-        this.getConfig().set("PlayTime.Password", "12345");
         this.getConfig().set("EconomyCB.Hostname", "localhost");
         this.getConfig().set("EconomyCB.Port", 3306);
-        this.getConfig().set("EconomyCB.Database", "PlayTimeBase");
+        this.getConfig().set("EconomyCB.Database", "EconomyCBBase");
         this.getConfig().set("EconomyCB.Username", "root");
         this.getConfig().set("EconomyCB.Password", "12345");
     }
 
     private void loadConfig() {
-        this.getConfig().getString("PlayTime.Hostname");
-        this.getConfig().getInt("PlayTime.Port");
-        this.getConfig().getString("PlayTime.Database");
-        this.getConfig().getString("PlayTime.Username");
-        this.getConfig().getString("PlayTime.Password");
         this.getConfig().getString("EconomyCB.Hostname");
         this.getConfig().getInt("EconomyCB.Port");
         this.getConfig().getString("EconomyCB.Database");
@@ -79,19 +69,6 @@ public class MySQL {
     }
 
     private Connection connection;
-
-    public void connectPlayTime() {
-        if (!isConnected()) {
-            try {
-                setConnection(DriverManager.getConnection("jdbc:mysql://" + this.getConfig().getString("PlayTime.Hostname") + ":" + this.getConfig().getInt("PlayTime.Port") + "/"
-                                + this.getConfig().getString("PlayTime.Database") + "?autoReconnect=true&useUnicode=yes",
-                        this.getConfig().getString("PlayTime.Username"), this.getConfig().getString("PlayTime.Password")));
-                CityBuild.getInstance().getSLF4JLogger().info("MySQL connected!");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     public void connectEconomyCB() {
         if (!isConnected()) {

@@ -3,7 +3,8 @@ package de.murmelmeister.citybuild;
 import de.murmelmeister.citybuild.api.Locations;
 import de.murmelmeister.citybuild.commands.Commands;
 import de.murmelmeister.citybuild.configs.Messages;
-import de.murmelmeister.citybuild.configs.MySQL;
+import de.murmelmeister.citybuild.configs.mysqls.EcoMySQL;
+import de.murmelmeister.citybuild.configs.mysqls.PTMySQL;
 import de.murmelmeister.citybuild.listeners.Listeners;
 import de.murmelmeister.economy.BankAPI;
 import de.murmelmeister.economy.MoneyAPI;
@@ -13,7 +14,8 @@ public class InitPlugin {
 
     private Messages messages;
     private Locations locations;
-    private MySQL mySQL;
+    private PTMySQL ptMySQL;
+    private EcoMySQL ecoMySQL;
 
     private PlayTimeAPI playTimeAPI;
     private MoneyAPI moneyAPI;
@@ -23,20 +25,25 @@ public class InitPlugin {
     private Commands commands;
 
     public void onDisable() {
-        getMySQL().disconnect();
+        getPtMySQL().disconnect();
+        getEcoMySQL().disconnect();
     }
 
     public void onEnable() {
         setMessages(new Messages());
         setLocations(new Locations());
-        setMySQL(new MySQL());
+        setPtMySQL(new PTMySQL());
+        setEcoMySQL(new EcoMySQL());
 
-        getMySQL().connectPlayTime();
-        getMySQL().connectEconomyCB();
+        getPtMySQL().connectPlayTime();
+        getEcoMySQL().connectEconomyCB();
 
-        setPlayTimeAPI(new PlayTimeAPI(getMySQL().getConnection()));
-        setMoneyAPI(new MoneyAPI(getMySQL().getConnection()));
-        setBankAPI(new BankAPI(getMySQL().getConnection()));
+        setPlayTimeAPI(new PlayTimeAPI(getPtMySQL().getConnection()));
+        setMoneyAPI(new MoneyAPI(getEcoMySQL().getConnection()));
+        setBankAPI(new BankAPI(getEcoMySQL().getConnection()));
+
+        getMoneyAPI().createTable();
+        getBankAPI().createTable();
 
         setListeners(new Listeners());
         setCommands(new Commands());
@@ -60,12 +67,20 @@ public class InitPlugin {
         this.locations = locations;
     }
 
-    public MySQL getMySQL() {
-        return mySQL;
+    public PTMySQL getPtMySQL() {
+        return ptMySQL;
     }
 
-    public void setMySQL(MySQL mySQL) {
-        this.mySQL = mySQL;
+    public void setPtMySQL(PTMySQL ptMySQL) {
+        this.ptMySQL = ptMySQL;
+    }
+
+    public EcoMySQL getEcoMySQL() {
+        return ecoMySQL;
+    }
+
+    public void setEcoMySQL(EcoMySQL ecoMySQL) {
+        this.ecoMySQL = ecoMySQL;
     }
 
     public PlayTimeAPI getPlayTimeAPI() {

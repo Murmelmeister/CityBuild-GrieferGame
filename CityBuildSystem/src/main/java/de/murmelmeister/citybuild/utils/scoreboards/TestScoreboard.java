@@ -51,11 +51,11 @@ public class TestScoreboard extends ScoreboardBuilder {
             @Override
             public void run() {
                 removeScoreTeam(8);
-                setScoreTeam(Component.text(handleMoney(moneyAPI, player) + "$", TextColor.color(0, 214, 95)), 8);
+                setScoreTeam(Component.text(handleMoney(moneyAPI, player) + " $", TextColor.color(0, 214, 95)), 8);
                 removeScoreTeam(5);
                 setScoreTeam(Component.text("§e" + (playTimeAPI.getHours(player.getUniqueId()) == 1 ? "1 Stunde" : playTimeAPI.getHours(player.getUniqueId()) + " Stunden")), 5);
             }
-        }.runTaskTimer(CityBuild.getInstance(), 20, 2 * 20);
+        }.runTaskTimer(CityBuild.getInstance(), 20, 3 * 20);
     }
 
     private String handleMoney(MoneyAPI moneyAPI, Player player) {
