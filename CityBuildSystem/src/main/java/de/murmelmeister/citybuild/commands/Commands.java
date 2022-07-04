@@ -1,6 +1,8 @@
 package de.murmelmeister.citybuild.commands;
 
 import de.murmelmeister.citybuild.CityBuild;
+import de.murmelmeister.citybuild.commands.locations.SetSpawnCommand;
+import de.murmelmeister.citybuild.commands.locations.SpawnCommand;
 import org.bukkit.command.TabExecutor;
 
 import java.util.Objects;

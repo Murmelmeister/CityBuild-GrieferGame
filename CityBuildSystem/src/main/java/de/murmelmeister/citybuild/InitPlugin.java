@@ -1,5 +1,6 @@
 package de.murmelmeister.citybuild;
 
+import de.murmelmeister.citybuild.api.Homes;
 import de.murmelmeister.citybuild.api.Locations;
 import de.murmelmeister.citybuild.commands.Commands;
 import de.murmelmeister.citybuild.configs.Messages;
@@ -14,6 +15,7 @@ public class InitPlugin {
 
     private Messages messages;
     private Locations locations;
+    private Homes homes;
     private PTMySQL ptMySQL;
     private EcoMySQL ecoMySQL;
 
@@ -32,6 +34,7 @@ public class InitPlugin {
     public void onEnable() {
         setMessages(new Messages());
         setLocations(new Locations());
+        setHomes(new Homes());
         setPtMySQL(new PTMySQL());
         setEcoMySQL(new EcoMySQL());
 
@@ -121,5 +124,13 @@ public class InitPlugin {
 
     public void setCommands(Commands commands) {
         this.commands = commands;
+    }
+
+    public Homes getHomes() {
+        return homes;
+    }
+
+    public void setHomes(Homes homes) {
+        this.homes = homes;
     }
 }

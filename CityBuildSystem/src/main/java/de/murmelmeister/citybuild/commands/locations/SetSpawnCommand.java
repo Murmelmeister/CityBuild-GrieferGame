@@ -1,5 +1,6 @@
-package de.murmelmeister.citybuild.commands;
+package de.murmelmeister.citybuild.commands.locations;
 
+import de.murmelmeister.citybuild.commands.CommandManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

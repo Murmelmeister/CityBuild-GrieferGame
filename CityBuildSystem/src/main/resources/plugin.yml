@@ -16,3 +16,13 @@ commands:
   spawn:
     usage: /<command>
     description: Teleport you to the spawn.
+  sethome:
+    usage: /<command> <homes>
+    description: Set you home!
+  home:
+    usage: /<command> <homes>
+    description: Teleport to you home!
+  deletehome:
+    usage: /<command> <homes>
+    description: Delete you home!
+    aliases: [ delhome ]
