@@ -1,6 +1,7 @@
 package de.murmelmeister.citybuild.listeners;
 
 import de.murmelmeister.citybuild.CityBuild;
+import de.murmelmeister.citybuild.api.Homes;
 import de.murmelmeister.citybuild.api.Locations;
 import de.murmelmeister.citybuild.configs.Messages;
 import de.murmelmeister.citybuild.utils.HexColor;
@@ -19,12 +20,14 @@ public class Listeners implements Listener {
     protected PlayTimeAPI playTimeAPI = this.instance.getInitPlugin().getPlayTimeAPI();
     protected MoneyAPI moneyAPI = this.instance.getInitPlugin().getMoneyAPI();
     protected BankAPI bankAPI = this.instance.getInitPlugin().getBankAPI();
+    protected Homes homes = this.instance.getInitPlugin().getHomes();
 
     private ConnectListener connectListener;
 
     public void registerListeners() {
         setConnectListener(new ConnectListener());
         addListener(getConnectListener());
+        addListener(new HomeListener());
     }
 
     private void addListener(Listener listener) {

@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Locations {
 
@@ -51,6 +52,12 @@ public class Locations {
         double pitch = (Math.round(location.getPitch() / 45.0F) * 45);
         String worldName = location.getWorld().getName();
         String environmentName = location.getWorld().getEnvironment().name();
+
+        ArrayList<String> locationNames = this.getLocationNames();
+        locationNames.add(name);
+        getLocationNames().remove("null");
+        getLocationNames().remove("[]");
+
         getConfig().set("Locations." + name + ".X", x);
         getConfig().set("Locations." + name + ".Y", y);
         getConfig().set("Locations." + name + ".Z", z);
@@ -58,6 +65,7 @@ public class Locations {
         getConfig().set("Locations." + name + ".Pitch", pitch);
         getConfig().set("Locations." + name + ".WorldName", worldName);
         getConfig().set("Locations." + name + ".EnvironmentName", environmentName);
+        getConfig().set("Locations.Name", locationNames);
         saveFile();
     }
 
@@ -74,6 +82,22 @@ public class Locations {
         location.setYaw((float) yaw);
         location.setPitch((float) pitch);
         return location;
+    }
+
+    public void removeLocation(String name) {
+        createFile();
+        ArrayList<String> locationNames = this.getLocationNames();
+        locationNames.remove(name);
+
+        getConfig().set("Locations." + name + ".X", null);
+        getConfig().set("Locations." + name + ".Y", null);
+        getConfig().set("Locations." + name + ".Z", null);
+        getConfig().set("Locations." + name + ".Yaw", null);
+        getConfig().set("Locations." + name + ".Pitch", null);
+        getConfig().set("Locations." + name + ".WorldName", null);
+        getConfig().set("Locations." + name + ".EnvironmentName", null);
+        getConfig().set("Locations.Name", locationNames);
+        saveFile();
     }
 
     public void setSpawn(Location location) {
@@ -108,6 +132,14 @@ public class Locations {
         location.setYaw((float) yaw);
         location.setPitch((float) pitch);
         return location;
+    }
+
+    public ArrayList<String> getLocationNames() {
+        ArrayList<String> locationNames = new ArrayList<>();
+        if (getConfig().contains("Locations.Name")) {
+            locationNames = (ArrayList<String>) getConfig().getStringList("Locations.Name");
+        }
+        return locationNames;
     }
 
     public File getFolder() {

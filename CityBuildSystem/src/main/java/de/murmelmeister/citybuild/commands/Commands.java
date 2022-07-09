@@ -6,8 +6,7 @@ import de.murmelmeister.citybuild.commands.economy.PayCommand;
 import de.murmelmeister.citybuild.commands.homes.DeleteHomeCommand;
 import de.murmelmeister.citybuild.commands.homes.HomeCommand;
 import de.murmelmeister.citybuild.commands.homes.SetHomeCommand;
-import de.murmelmeister.citybuild.commands.locations.SetSpawnCommand;
-import de.murmelmeister.citybuild.commands.locations.SpawnCommand;
+import de.murmelmeister.citybuild.commands.locations.*;
 import org.bukkit.command.TabExecutor;
 
 import java.util.Objects;
@@ -23,6 +22,9 @@ public class Commands {
         addCommand("sethome", new SetHomeCommand());
         addCommand("money", new MoneyCommand());
         addCommand("pay", new PayCommand());
+        addCommand("deletewarp", new DeleteWarpCommand());
+        addCommand("warp", new WarpCommand());
+        addCommand("setwarp", new SetWarpCommand());
     }
 
     private void addCommand(String commandName, TabExecutor command) {

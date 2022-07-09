@@ -32,3 +32,13 @@ commands:
   money:
     usage: /<command> [players]
     description: Zeige dein Kontostand an.
+  setwarp:
+    usage: /<command> <warps>
+    description: Erstelle Warp Punkt.
+  warp:
+    usage: /<command> <warps>
+    description: Teleport dich zu dem Warp Punkt.
+  deletewarp:
+    usage: /<command> <warps>
+    description: Lösche den Warp Punkt.
+    aliases: [ delwarp ]

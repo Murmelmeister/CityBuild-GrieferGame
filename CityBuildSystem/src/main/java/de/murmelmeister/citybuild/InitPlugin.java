@@ -54,7 +54,7 @@ public class InitPlugin {
         getListeners().registerListeners();
         getCommands().registerCommands();
 
-        getListeners().getConnectListener().updateActionBar(getPlayTimeAPI());
+        //getListeners().getConnectListener().updateActionBar(getPlayTimeAPI());
     }
 
     public Messages getMessages() {

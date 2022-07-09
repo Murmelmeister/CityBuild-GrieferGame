@@ -55,7 +55,7 @@ public class TestScoreboard extends ScoreboardBuilder {
                 removeScoreTeam(5);
                 setScoreTeam(Component.text("§e" + (playTimeAPI.getHours(player.getUniqueId()) == 1 ? "1 Stunde" : playTimeAPI.getHours(player.getUniqueId()) + " Stunden")), 5);
             }
-        }.runTaskTimer(CityBuild.getInstance(), 20L, 4 * 20L);
+        }.runTaskTimerAsynchronously(CityBuild.getInstance(), 20L, 2 * 20L);
     }
 
     private String handleMoney(MoneyAPI moneyAPI, Player player) {
@@ -68,13 +68,13 @@ public class TestScoreboard extends ScoreboardBuilder {
             BigDecimal big = moneyAPI.getMoney(playerUUID);
             BigDecimal big2 = new BigDecimal(1000000000000L);
             big = big.divide(big2, MathContext.DECIMAL128);
-            return decimalFormat.format(big.doubleValue()) + " Tri";
+            return decimalFormat.format(big.doubleValue()) + " Bio";
         } else if (moneyAPI.getMoney(playerUUID).doubleValue() >= 1000000000) {
 
             BigDecimal big = moneyAPI.getMoney(playerUUID);
             BigDecimal big2 = new BigDecimal(1000000000);
             big = big.divide(big2, MathContext.DECIMAL128);
-            return decimalFormat.format(big.doubleValue()) + " Bio";
+            return decimalFormat.format(big.doubleValue()) + " Mrd";
         } else if (moneyAPI.getMoney(playerUUID).doubleValue() >= 1000000) {
 
             BigDecimal big = moneyAPI.getMoney(playerUUID);
@@ -86,7 +86,7 @@ public class TestScoreboard extends ScoreboardBuilder {
             BigDecimal big = moneyAPI.getMoney(playerUUID);
             BigDecimal big2 = new BigDecimal(1000);
             big = big.divide(big2, MathContext.DECIMAL128);
-            return decimalFormat.format(big.doubleValue()) + " k";
+            return decimalFormat.format(big.doubleValue()) + "k";
         }
 
         return decimalFormat.format(moneyAPI.getMoney(playerUUID));
