@@ -6,7 +6,9 @@ import de.murmelmeister.citybuild.configs.Messages;
 import de.murmelmeister.citybuild.configs.mysqls.EcoMySQL;
 import de.murmelmeister.citybuild.configs.mysqls.PTMySQL;
 import de.murmelmeister.citybuild.listeners.Listeners;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
 
 public final class CityBuild extends JavaPlugin {
     private Messages messages;
@@ -22,8 +24,12 @@ public final class CityBuild extends JavaPlugin {
     private Listeners listeners;
     private Commands commands;
 
+    private BukkitTask actionBarTask;
+
     @Override
     public void onDisable() {
+        if (actionBarTask != null && !actionBarTask.isCancelled())
+            actionBarTask.cancel();
         ptMySQL.disconnect();
         ecoMySQL.disconnect();
         this.getServer().getMessenger().unregisterOutgoingPluginChannel(this);
@@ -47,8 +53,12 @@ public final class CityBuild extends JavaPlugin {
         listeners.registerListeners();
         commands.registerCommands();
 
-        //getListeners().getConnectListener().updateActionBar(getPlayTimeAPI());
         this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+
+        actionBarTask = getServer().getScheduler().runTaskTimerAsynchronously(this, () -> {
+            for (Player player : getServer().getOnlinePlayers())
+                listeners.getConnectListener().updateActionBar(playTimeAPI, player);
+        }, 20L, 2L);
     }
 
     @Override
