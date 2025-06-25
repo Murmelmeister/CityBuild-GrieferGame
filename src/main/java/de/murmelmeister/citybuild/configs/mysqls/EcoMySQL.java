@@ -21,7 +21,7 @@ public class EcoMySQL {
     }
 
     public void createFile() {
-        setFolder(new File("plugins//GrieferGame//" + CityBuild.getInstance().getPluginName() + "//MySQL//"));
+        setFolder(new File("plugins//GrieferGame//" + CityBuild.class.getSimpleName() + "//MySQL//"));
         if (!(getFolder().exists())) {
             boolean aBoolean = getFolder().mkdirs();
             if (!(aBoolean)) CityBuild.getInstance().getSLF4JLogger().warn("The folder cannot be created a second time.");

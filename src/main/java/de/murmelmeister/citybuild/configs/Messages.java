@@ -19,7 +19,7 @@ public class Messages {
     }
 
     public void createFile() {
-        setFolder(new File("plugins//GrieferGame//" + CityBuild.getInstance().getPluginName() + "//"));
+        setFolder(new File("plugins//GrieferGame//" + CityBuild.class.getSimpleName() + "//"));
         if (!(getFolder().exists())) {
             boolean aBoolean = getFolder().mkdirs();
             if (!(aBoolean))
@@ -52,8 +52,7 @@ public class Messages {
     }
 
     private void firstConfig() {
-        CityBuild.getInstance().setPrefix(HexColor.format("§8[§6GrieferGame§8] §r"));
-        setConfigMessage("Prefix", CityBuild.getInstance().getPrefix());
+        setConfigMessage("Prefix", "§8[§6GrieferGame§8] §r");
         setConfigMessage("Permission.SetSpawn", "citybuild.command.setspawn");
         setConfigMessage("Permission.Spawn", "citybuild.command.spawn");
         setConfigMessage("Permission.CityBuild.Use", "citybuild.command.citybuild.use");

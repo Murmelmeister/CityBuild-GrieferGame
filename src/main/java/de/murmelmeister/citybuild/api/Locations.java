@@ -15,7 +15,7 @@ public class Locations {
     private YamlConfiguration config;
 
     public void createFile() {
-        setFolder(new File("plugins//GrieferGame//" + CityBuild.getInstance().getPluginName() + "//"));
+        setFolder(new File("plugins//GrieferGame//" + CityBuild.class.getSimpleName() + "//"));
         if (!(getFolder().exists())) {
             boolean aBoolean = getFolder().mkdirs();
             if (!(aBoolean))

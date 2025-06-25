@@ -11,12 +11,12 @@ public class Listeners implements Listener {
 
     protected CityBuild instance = CityBuild.getInstance();
 
-    protected Messages messages = this.instance.getInitPlugin().getMessages();
-    protected Locations locations = this.instance.getInitPlugin().getLocations();
-    protected PlayTimeAPI playTimeAPI = this.instance.getInitPlugin().getPlayTimeAPI();
-    protected MoneyAPI moneyAPI = this.instance.getInitPlugin().getMoneyAPI();
-    protected BankAPI bankAPI = this.instance.getInitPlugin().getBankAPI();
-    protected Homes homes = this.instance.getInitPlugin().getHomes();
+    protected Messages messages = this.instance.getMessages();
+    protected Locations locations = this.instance.getLocations();
+    protected PlayTimeAPI playTimeAPI = this.instance.getPlayTimeAPI();
+    protected MoneyAPI moneyAPI = this.instance.getMoneyAPI();
+    protected BankAPI bankAPI = this.instance.getBankAPI();
+    protected Homes homes = this.instance.getHomes();
 
     private ConnectListener connectListener;
 

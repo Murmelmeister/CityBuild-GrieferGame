@@ -15,10 +15,10 @@ public abstract class CommandManager implements TabExecutor {
 
     protected CityBuild instance = CityBuild.getInstance();
 
-    protected Messages messages = this.instance.getInitPlugin().getMessages();
-    protected Locations locations = this.instance.getInitPlugin().getLocations();
-    protected Homes homes = this.instance.getInitPlugin().getHomes();
-    protected MoneyAPI moneyAPI = this.instance.getInitPlugin().getMoneyAPI();
+    protected Messages messages = this.instance.getMessages();
+    protected Locations locations = this.instance.getLocations();
+    protected Homes homes = this.instance.getHomes();
+    protected MoneyAPI moneyAPI = this.instance.getMoneyAPI();
 
     protected DecimalFormat decimalFormat = new DecimalFormat("###,###,###.##");
 

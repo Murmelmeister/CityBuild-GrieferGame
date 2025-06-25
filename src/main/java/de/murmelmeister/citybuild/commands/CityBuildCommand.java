@@ -22,9 +22,12 @@ public class CityBuildCommand extends CommandManager {
                 return true;
             }
 
+            String author = "Murmelmeister (LilaAtomBurger)";
+            String version = "0.0.1-ALPHA-SNAPSHOT";
+
             sendMessage(sender, " ");
-            sendMessage(sender, "§7Das Plugin wurde von §3" + this.instance.getAuthor() + " §7programmiert.");
-            sendMessage(sender, "§7Version: §3" + this.instance.getVersion());
+            sendMessage(sender, "§7Das Plugin wurde von §3" + author + " §7programmiert.");
+            sendMessage(sender, "§7Version: §3" + version);
             sendMessage(sender, " ");
 
         } else if (args.length == 1) {

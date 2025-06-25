@@ -15,8 +15,8 @@ import java.util.UUID;
 
 public class TestScoreboard extends ScoreboardBuilder {
 
-    private final MoneyAPI moneyAPI = CityBuild.getInstance().getInitPlugin().getMoneyAPI();
-    private final PlayTimeAPI playTimeAPI = CityBuild.getInstance().getInitPlugin().getPlayTimeAPI();
+    private final MoneyAPI moneyAPI = CityBuild.getInstance().getMoneyAPI();
+    private final PlayTimeAPI playTimeAPI = CityBuild.getInstance().getPlayTimeAPI();
 
     private final DecimalFormat decimalFormat = new DecimalFormat("###,###,###.##");
 

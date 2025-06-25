@@ -19,7 +19,7 @@ public class Homes {
     private YamlConfiguration config;
 
     public void createFile(UUID uuid) {
-        setFolder(new File("plugins//GrieferGame//" + CityBuild.getInstance().getPluginName() + "//"));
+        setFolder(new File("plugins//GrieferGame//" + CityBuild.class.getSimpleName() + "//"));
         if (!(getFolder().exists())) {
             boolean aBoolean = getFolder().mkdirs();
             if (!(aBoolean))
