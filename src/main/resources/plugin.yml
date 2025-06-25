@@ -29,9 +29,6 @@ commands:
   pay:
     usage: /<command> <players> <coin>
     description: Bezahle andere Spieler.
-  money:
-    usage: /<command> [players]
-    description: Zeige dein Kontostand an.
   setwarp:
     usage: /<command> <warps>
     description: Erstelle Warp Punkt.
@@ -42,3 +39,7 @@ commands:
     usage: /<command> <warps>
     description: Lösche den Warp Punkt.
     aliases: [ delwarp ]
+  lobby:
+    usage: /<command>
+    description: Teleport to the hub!
+    aliases: [ l, hub, hublobby ]

@@ -9,6 +9,7 @@ public final class CityBuild extends Main {
     @Override
     public void onDisable() {
         getInitPlugin().onDisable();
+        this.getServer().getMessenger().unregisterOutgoingPluginChannel(this);
         handleDisableMessage();
     }
 
@@ -16,6 +17,7 @@ public final class CityBuild extends Main {
     public void onEnable() {
         setInitPlugin(new InitPlugin());
         getInitPlugin().onEnable();
+        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         handleEnableMessage();
     }
 

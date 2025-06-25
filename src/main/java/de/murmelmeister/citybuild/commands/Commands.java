@@ -20,11 +20,12 @@ public class Commands {
         addCommand("deletehome", new DeleteHomeCommand());
         addCommand("home", new HomeCommand());
         addCommand("sethome", new SetHomeCommand());
-        addCommand("money", new MoneyCommand());
+        //addCommand("money", new MoneyCommand());
         addCommand("pay", new PayCommand());
         addCommand("deletewarp", new DeleteWarpCommand());
         addCommand("warp", new WarpCommand());
         addCommand("setwarp", new SetWarpCommand());
+        addCommand("lobby", new LobbyCommand());
     }
 
     private void addCommand(String commandName, TabExecutor command) {

@@ -1,7 +1,7 @@
 package de.murmelmeister.citybuild.listeners;
 
+import de.murmelmeister.citybuild.api.PlayTimeAPI;
 import de.murmelmeister.citybuild.utils.scoreboards.TestScoreboard;
-import de.murmelmeister.playtime.PlayTimeAPI;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.TextColor;

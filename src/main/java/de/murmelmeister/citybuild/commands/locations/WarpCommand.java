@@ -31,7 +31,7 @@ public class WarpCommand extends CommandManager {
             return true;
         }
 
-        this.locations.getLocation(args[0]);
+        player.teleport(this.locations.getLocation(args[0]));
         return true;
     }
 

@@ -3,9 +3,9 @@ package de.murmelmeister.citybuild.commands;
 import de.murmelmeister.citybuild.CityBuild;
 import de.murmelmeister.citybuild.api.Homes;
 import de.murmelmeister.citybuild.api.Locations;
+import de.murmelmeister.citybuild.api.MoneyAPI;
 import de.murmelmeister.citybuild.configs.Messages;
 import de.murmelmeister.citybuild.utils.HexColor;
-import de.murmelmeister.economy.MoneyAPI;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 

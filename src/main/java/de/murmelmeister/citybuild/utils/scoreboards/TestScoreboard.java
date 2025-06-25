@@ -1,8 +1,8 @@
 package de.murmelmeister.citybuild.utils.scoreboards;
 
 import de.murmelmeister.citybuild.CityBuild;
-import de.murmelmeister.economy.MoneyAPI;
-import de.murmelmeister.playtime.PlayTimeAPI;
+import de.murmelmeister.citybuild.api.MoneyAPI;
+import de.murmelmeister.citybuild.api.PlayTimeAPI;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.entity.Player;
